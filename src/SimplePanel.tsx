@@ -9,6 +9,10 @@ interface Props extends PanelProps<SimpleOptions> {}
 export const SimplePanel: React.FC<Props> = ({ options, data, width, height }) => {
   const theme = useTheme();
   const styles = getStyles();
+  if (!options.text) {
+    onOptionsChange({ ...options, text: 'This should show up' });
+  }
+
   return (
     <div
       className={cx(
